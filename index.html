@@ -822,18 +822,54 @@
     <!-- Product hero card -->
     <section class="hero-card">
       <div class="logo-box">
+        <!-- Hình ảnh Klerat 50g (hiển thị đầu tiên) -->
         <img
-          src="https://placehold.co/400x150/e2e8f0/9ca3af?text=Klerat+0.005"
-          alt="Klerat 0.005"
+          src="https://lh3.googleusercontent.com/d/1FUzIH1CHt2KUiOCIM9Eb8BayE4nPBj5J"
+          alt="Klerat 0.005 pellete 50g"
           loading="lazy"
           decoding="async"
+          id="image-1"
+          style="display: block"
         />
+
+        <!-- Hình ảnh Klerat 1kg (ẩn ban đầu) -->
+        <img
+          src="https://lh3.googleusercontent.com/d/1YMLXkUwVLQqX_mHJNto7aSMEhD1frrwN"
+          alt="Klerat 0.005 pellete 1kg"
+          loading="lazy"
+          decoding="async"
+          id="image-2"
+          style="display: none"
+        />
+
         <div class="thumbnail-nav">
-          <div class="thumbnail active"></div>
-          <div class="thumbnail"></div>
-          <div class="thumbnail"></div>
+          <div
+            class="thumbnail active"
+            onclick="showImage('image-1', this)"
+          ></div>
+          <div class="thumbnail" onclick="showImage('image-2', this)"></div>
         </div>
       </div>
+
+      <script>
+        function showImage(imageId, thumbnailElement) {
+          // Ẩn tất cả các hình ảnh
+          document.querySelectorAll(".logo-box > img").forEach((img) => {
+            img.style.display = "none";
+          });
+
+          // Bỏ active khỏi tất cả thumbnail
+          document.querySelectorAll(".thumbnail").forEach((thumb) => {
+            thumb.classList.remove("active");
+          });
+
+          // Hiển thị hình ảnh được chọn
+          document.getElementById(imageId).style.display = "block";
+
+          // Đặt active cho thumbnail tương ứng
+          thumbnailElement.classList.add("active");
+        }
+      </script>
       <div class="info-box">
         <h1>KLERAT 0.005 PELLETE</h1>
         <span class="status">Đang bán</span>
